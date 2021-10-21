@@ -12,15 +12,23 @@ import lombok.Data;
 
 /**
  * ${comments}
- * 
+ *
  * @author ${author}
  * @email ${email}
  * @date ${datetime}
  */
+@Builder
 @Data
 @TableName("${tableName}")
 public class ${className} implements Serializable {
 	private static final long serialVersionUID = 1L;
+    /**
+* 解决@Builder和lombok冲突
+*/
+    @Tolerate
+	public ${className}(){
+
+        }
 
 #foreach ($column in $columns)
 	/**
